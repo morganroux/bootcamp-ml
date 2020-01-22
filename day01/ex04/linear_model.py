@@ -5,6 +5,7 @@ from mylinearregression import MyLinearRegression as MyLR
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+from sklearn.metrics import mean_squared_error
 
 # Init
 fl = FL()
@@ -28,5 +29,7 @@ data2 = {
 	'Predict' : mylr.predict_(X).reshape(X.shape[0])
 }	
 ax = sns.lineplot(x='Micrograms', y='Predict',data=data2, ax=ax)
-plt.show()
+#plt.show()
 
+print(mean_squared_error(Y_pred, Y))
+print(mylr.mse_(Y_pred, Y))

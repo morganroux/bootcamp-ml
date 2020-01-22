@@ -9,6 +9,9 @@ class MyLinearRegression():
 		n= X.shape[1]
 		return 1/m * np.transpose(X).dot(X.dot(th) - Y)
 	
+	def mse_(self, y, y_hat):
+		return float(np.dot(np.transpose(y - y_hat), y - y_hat) / len(y))
+	
 	def predict_(self, X):
 		n = X.shape[0]
 		one = np.array([1 for i in range(n)]).reshape(n,1)
